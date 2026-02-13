@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const music = document.getElementById("bgm");
 
   // LOVE TIMER (20 Desember 20:55 WIB)
-  const relationshipStart = new Date("2024-12-20T20:55:00+07:00");
+  const relationshipStart = new Date("2025-12-20T20:55:00+07:00");
 
   function updateLoveTimer() {
     const now = new Date();
