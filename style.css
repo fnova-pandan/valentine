@@ -1,23 +1,19 @@
-/* ===== RESET & BASE ===== */
 * {
   box-sizing: border-box;
 }
 
 body {
   margin: 0;
-  font-family: 'Poppins', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  font-family: 'Poppins', system-ui, sans-serif;
   background: linear-gradient(135deg, #ffd6e8, #ffeef5);
   overflow-x: hidden;
   transition: background 1.5s ease;
 }
 
-/* ===== SUNFLOWER BACKGROUND (AFTER YES) ===== */
+/* SUNFLOWER BACKGROUND */
 .sunflower-bg {
   background:
-    linear-gradient(
-      rgba(255, 214, 232, 0.75),
-      rgba(255, 214, 232, 0.75)
-    ),
+    linear-gradient(rgba(255,214,232,0.75), rgba(255,214,232,0.75)),
     url("sunflower.jpg");
   background-size: cover;
   background-position: center;
@@ -25,7 +21,6 @@ body {
   background-attachment: fixed;
 }
 
-/* ===== LAYOUT ===== */
 .container {
   min-height: 100vh;
   padding: 24px 18px 40px;
@@ -38,22 +33,14 @@ body {
 }
 
 @keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(18px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(18px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
-/* ===== HEADINGS ===== */
 h1 {
   margin: 0;
   color: #ff4d88;
   font-size: 1.9rem;
-  font-weight: 700;
 }
 
 h2 {
@@ -63,7 +50,6 @@ h2 {
   font-weight: 500;
 }
 
-/* ===== PHOTO CARD ===== */
 .photo {
   width: 210px;
   height: 210px;
@@ -72,7 +58,6 @@ h2 {
   box-shadow: 0 12px 30px rgba(0,0,0,0.18);
   margin: 18px 0;
   animation: floatPhoto 4s ease-in-out infinite;
-  background: #fff;
 }
 
 .photo img {
@@ -82,37 +67,30 @@ h2 {
 }
 
 @keyframes floatPhoto {
-  0%, 100% { transform: translateY(0); }
   50% { transform: translateY(-10px); }
 }
 
-/* ===== HEART ===== */
 .heart {
   font-size: 56px;
-  margin: 6px 0 12px;
+  margin: 6px 0 10px;
   animation: beat 1s infinite;
 }
 
 @keyframes beat {
-  0%, 100% { transform: scale(1); }
   50% { transform: scale(1.2); }
 }
 
-/* ===== TEXT ===== */
 p {
   max-width: 520px;
   color: #444;
   line-height: 1.6;
   font-size: 0.95rem;
-  margin: 6px 0;
 }
 
 .question {
   margin-top: 10px;
-  font-size: 1rem;
 }
 
-/* ===== BUTTONS ===== */
 .buttons {
   display: flex;
   gap: 18px;
@@ -125,25 +103,17 @@ button {
   border: none;
   border-radius: 999px;
   cursor: pointer;
-  transition: transform 0.15s ease, box-shadow 0.15s ease;
-}
-
-button:active {
-  transform: scale(0.95);
 }
 
 #yes {
   background: #ff4d88;
-  color: #fff;
-  box-shadow: 0 8px 20px rgba(255, 77, 136, 0.35);
+  color: white;
 }
 
 #no {
   background: #ddd;
-  color: #333;
 }
 
-/* ===== RESULT TEXT ===== */
 #message {
   display: none;
   margin-top: 18px;
@@ -152,64 +122,39 @@ button:active {
   color: #ff4d88;
 }
 
-/* ===== LOVE BOX ===== */
 #tips {
   display: none;
   margin-top: 14px;
-  max-width: 520px;
   background: rgba(255,255,255,0.92);
-  backdrop-filter: blur(6px);
   padding: 14px 16px;
   border-radius: 16px;
   box-shadow: 0 8px 24px rgba(0,0,0,0.15);
   font-size: 0.9rem;
-  line-height: 1.6;
 }
 
-/* ===== CONFETTI ===== */
-.confetti {
-  position: fixed;
-  top: -20px;
-  width: 8px;
-  height: 14px;
-  border-radius: 50%;
-  opacity: 0.9;
-  animation: confettiFall linear forwards;
-  z-index: 9999;
+/* LOVE TIMER */
+#timer {
+  margin: 10px 0 14px;
+  padding: 10px 16px;
+  background: rgba(255,255,255,0.75);
+  border-radius: 14px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.12);
 }
 
-@keyframes confettiFall {
-  0% {
-    transform: translateY(0) rotate(0deg);
-  }
-  100% {
-    transform: translateY(110vh) rotate(720deg);
-    opacity: 0;
-  }
+.timer-title {
+  margin: 0;
+  font-size: 0.85rem;
+  color: #ff6f9f;
+  font-weight: 600;
 }
 
-/* ===== MOBILE TUNING ===== */
-@media (max-width: 360px) {
-  .photo {
-    width: 190px;
-    height: 190px;
-  }
-
-  h1 {
-    font-size: 1.7rem;
-  }
-}
-#tips {
-  display: none;
-  margin-top: 15px;
-  background: white;
-  padding: 15px;
-  border-radius: 15px;
-  box-shadow: 0 5px 20px rgba(0,0,0,.1);
-  font-size: 0.95em;
+.timer-time {
+  margin: 4px 0 0;
+  font-size: 0.95rem;
+  color: #444;
 }
 
-/* Smooth Confetti */
+/* CONFETTI */
 .confetti {
   position: fixed;
   top: -20px;
@@ -227,5 +172,3 @@ button:active {
     opacity: 0;
   }
 }
-
-
