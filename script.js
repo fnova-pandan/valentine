@@ -3,19 +3,37 @@ document.addEventListener("DOMContentLoaded", () => {
   const noBtn = document.getElementById("no");
   const music = document.getElementById("bgm");
 
+  // LOVE TIMER (20 Desember 20:55 WIB)
+  const relationshipStart = new Date("2024-12-20T20:55:00+07:00");
+
+  function updateLoveTimer() {
+    const now = new Date();
+    let diff = now - relationshipStart;
+    if (diff < 0) return;
+
+    const seconds = Math.floor(diff / 1000) % 60;
+    const minutes = Math.floor(diff / (1000 * 60)) % 60;
+    const hours = Math.floor(diff / (1000 * 60 * 60)) % 24;
+    const daysTotal = Math.floor(diff / (1000 * 60 * 60 * 24));
+    const months = Math.floor(daysTotal / 30);
+    const days = daysTotal % 30;
+
+    document.getElementById("loveTimer").innerText =
+      `${months} months, ${days} days, ${hours} hours, ${minutes} minutes, ${seconds} seconds 💞`;
+  }
+
+  setInterval(updateLoveTimer, 1000);
+  updateLoveTimer();
+
   yesBtn.addEventListener("click", () => {
-    // Play music (HP-safe)
     music.volume = 0.8;
     music.play().catch(() => {});
 
-    // Show messages
     document.getElementById("message").style.display = "block";
     document.getElementById("tips").style.display = "block";
 
-    // Change background
     document.body.classList.add("sunflower-bg");
 
-    // Confetti
     for (let i = 0; i < 120; i++) {
       const confetti = document.createElement("div");
       confetti.className = "confetti";
