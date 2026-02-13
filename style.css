@@ -82,49 +82,38 @@ button {
   background: #ccc;
 }
 
-#message {
+#message, #tips {
   display: none;
-  margin-top: 25px;
+  margin-top: 20px;
+}
+
+#message {
   font-size: 1.2em;
   color: #ff4d88;
 }
 
 #tips {
-  display: none;
-  margin-top: 20px;
   background: white;
   padding: 15px;
   border-radius: 15px;
   box-shadow: 0 5px 20px rgba(0,0,0,.1);
-  font-size: .95em;
-  animation: fade 1s ease;
 }
 
-/* Confetti */
+/* Smooth Confetti */
 .confetti {
   position: fixed;
-  top: -10px;
-  width: 10px;
-  height: 10px;
-  animation: fall 3s linear forwards;
-  z-index: 999;
+  top: -20px;
+  width: 8px;
+  height: 14px;
+  border-radius: 50%;
+  opacity: 0.9;
+  animation: confettiFall linear forwards;
+  z-index: 9999;
 }
 
-@keyframes fall {
+@keyframes confettiFall {
   to {
-    transform: translateY(110vh) rotate(360deg);
+    transform: translateY(110vh) rotate(720deg);
     opacity: 0;
   }
-}
-
-/* Floating hearts */
-.floating-heart {
-  position: absolute;
-  animation: floatUp 6s linear infinite;
-  opacity: .8;
-}
-
-@keyframes floatUp {
-  from { transform: translateY(100vh); }
-  to { transform: translateY(-10vh); opacity: 0; }
-}
+}}
