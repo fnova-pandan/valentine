@@ -5,13 +5,6 @@
 body {
   margin: 0;
   font-family: 'Poppins', system-ui, sans-serif;
-  background: linear-gradient(135deg, #ffd6e8, #ffeef5);
-  overflow-x: hidden;
-  transition: background 1.5s ease;
-}
-
-/* SUNFLOWER BACKGROUND */
-.sunflower-bg {
   background:
     linear-gradient(rgba(255,214,232,0.75), rgba(255,214,232,0.75)),
     url("sunflower.jpg");
@@ -19,6 +12,7 @@ body {
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: fixed;
+  overflow-x: hidden;
 }
 
 .container {
@@ -132,6 +126,67 @@ button {
   font-size: 0.9rem;
 }
 
+/* TIMER */
+#timer {
+  display: none;
+  margin: 10px 0 14px;
+  padding: 10px 16px;
+  background: rgba(255,255,255,0.75);
+  border-radius: 14px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+}
+
+.timer-title {
+  margin: 0;
+  font-size: 0.85rem;
+  color: #ff6f9f;
+  font-weight: 600;
+}
+
+.timer-time {
+  margin: 4px 0 0;
+  font-size: 0.95rem;
+  color: #444;
+}
+
+/* CONFETTI */
+.confetti {
+  position: fixed;
+  top: -20px;
+  width: 8px;
+  height: 14px;
+  border-radius: 50%;
+  opacity: 0.9;
+  animation: confettiFall linear forwards;
+  z-index: 9999;
+}
+
+@keyframes confettiFall {
+  to {
+    transform: translateY(110vh) rotate(720deg);
+    opacity: 0;
+  }
+}  background: #ddd;
+}
+
+#message {
+  display: none;
+  margin-top: 18px;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #ff4d88;
+}
+
+#tips {
+  display: none;
+  margin-top: 14px;
+  background: rgba(255,255,255,0.92);
+  padding: 14px 16px;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+  font-size: 0.9rem;
+}
+
 /* LOVE TIMER */
 #timer {
   margin: 10px 0 14px;
@@ -172,3 +227,4 @@ button {
     opacity: 0;
   }
 }
+
