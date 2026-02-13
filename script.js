@@ -2,14 +2,24 @@ document.addEventListener("DOMContentLoaded", () => {
   const yesBtn = document.getElementById("yes");
   const noBtn = document.getElementById("no");
   const music = document.getElementById("bgm");
+  const timerBox = document.getElementById("timer");
+  const timerText = document.getElementById("loveTimer");
 
-  // LOVE TIMER (20 Desember 20:55 WIB)
+  // TANGGAL JADIAN
+  // 20 Desember 2025, 20:55 WIB
   const relationshipStart = new Date("2025-12-20T20:55:00+07:00");
+  let timerStarted = false;
 
   function updateLoveTimer() {
+    if (!timerStarted) return;
+
     const now = new Date();
-    let diff = now - relationshipStart;
-    if (diff < 0) return;
+    const diff = now - relationshipStart;
+
+    if (diff < 0) {
+      timerText.innerText = "Our story will begin soon 💖";
+      return;
+    }
 
     const seconds = Math.floor(diff / 1000) % 60;
     const minutes = Math.floor(diff / (1000 * 60)) % 60;
@@ -18,12 +28,12 @@ document.addEventListener("DOMContentLoaded", () => {
     const months = Math.floor(daysTotal / 30);
     const days = daysTotal % 30;
 
-    document.getElementById("loveTimer").innerText =
-      `${months} months, ${days} days, ${hours} hours, ${minutes} minutes, ${seconds} seconds 💞`;
+    timerText.innerText =
+      `${months} months, ${days} days, ` +
+      `${hours} hours, ${minutes} minutes, ${seconds} seconds 💞`;
   }
 
   setInterval(updateLoveTimer, 1000);
-  updateLoveTimer();
 
   yesBtn.addEventListener("click", () => {
     music.volume = 0.8;
@@ -32,7 +42,9 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("message").style.display = "block";
     document.getElementById("tips").style.display = "block";
 
-    document.body.classList.add("sunflower-bg");
+    timerStarted = true;
+    timerBox.style.display = "block";
+    updateLoveTimer();
 
     for (let i = 0; i < 120; i++) {
       const confetti = document.createElement("div");
